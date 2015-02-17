@@ -1,2 +1,371 @@
-{    "toJSON": true,    "dbInfo": [{        "name": "Model",        "uuid": ""    }],    "extraProperties": {        "version": "1",        "classes": {        },        "model": {            "scriptMode": "manual"
-        }    },    "dataClasses": []}
+{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Buyer": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 35,
+						"Y": 25
+					}
+				}
+			},
+			"Agent": {
+				"panelColor": "#D8D8D8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 28,
+						"Y": 334
+					}
+				}
+			},
+			"Property": {
+				"panelColor": "#E5B9B7",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 363,
+						"Y": 17
+					}
+				}
+			},
+			"Sale": {
+				"panelColor": "#8DB3E2",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 408,
+						"Y": 313
+					}
+				}
+			},
+			"Payment": {
+				"panelColor": "#548DD4",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 77,
+						"Y": 641
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 30,
+			"workspaceTop": 0,
+			"relationCurve": {
+				"run": true,
+				"mode": 1
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "Agent",
+			"className": "Agent",
+			"collectionName": "AgentCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "firstName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "lastName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "mobile",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				},
+				{
+					"name": "email",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "saleCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "SaleCollection",
+					"reversePath": true,
+					"path": "agent"
+				}
+			]
+		},
+		{
+			"name": "Buyer",
+			"className": "Buyer",
+			"collectionName": "BuyerCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "firstName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "lastName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "mobileNumber",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "email",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "saleCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "SaleCollection",
+					"reversePath": true,
+					"path": "buyer"
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"className": "Payment",
+			"collectionName": "PaymentCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "date",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "amount",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "attribute1",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "sales",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Sale",
+					"path": "Sale"
+				}
+			]
+		},
+		{
+			"name": "Property",
+			"className": "Property",
+			"collectionName": "PropertyCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "attribute1",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "developer",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "location",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "commission",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				},
+				{
+					"name": "attribute2",
+					"kind": "storage",
+					"scope": "public",
+					"type": "image"
+				},
+				{
+					"name": "saleCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "SaleCollection",
+					"reversePath": true,
+					"path": "property"
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"className": "Sale",
+			"collectionName": "SaleCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": "true",
+					"autosequence": true,
+					"type": "long",
+					"primKey": "true"
+				},
+				{
+					"name": "property",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Property",
+					"path": "Property"
+				},
+				{
+					"name": "unit",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "buyer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Buyer",
+					"path": "Buyer"
+				},
+				{
+					"name": "agent",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Agent",
+					"path": "Agent"
+				},
+				{
+					"name": "terms",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "commissionCompany",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "attribute1",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "totalSelling",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "miss",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "discount",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "firstPayment",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "equity",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				},
+				{
+					"name": "paymentCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "PaymentCollection",
+					"reversePath": true,
+					"path": "sales"
+				}
+			]
+		}
+	],
+	"type": []
+}
